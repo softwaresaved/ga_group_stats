@@ -57,18 +57,26 @@ def initialize_analyticsreporting():
 
   return analytics
 
-def get_report(analytics):
+def get_report(analytics, pageSize, pageToken):
   # Use the Analytics Service Object to query the Analytics Reporting API V4
+  #    'metrics': [{ 'expression': 'ga:pageviews' }],
+  #        'operator': "REGEXP",
+  #        'dimensionName': 'ga:pagePath',
+  #        'expressions': '/blog/',
+  #    'samplingLevel': "SMALL",
 
   # The structural body of our GA request
   body={
     'reportRequests': [{
       'viewId': VIEW_ID,
+      'dimensions': [{"name": "ga:pagepath"}],
       'dateRanges': [{'startDate': STARTDATE, 'endDate': ENDDATE}],
       'metrics': [],
       'dimensionFilterClauses': [{
-        'filters': []
-      }]
+        'filters': [],
+      }],
+      'pageSize': pageSize,
+      'pageToken': str(pageToken),
     }]
   }
 
@@ -92,6 +100,7 @@ def get_report(analytics):
     # name and optional HTTP get query, so we can group stats for all aliases/copies
     # of same actual content
     url_regexp = '^' + path + '/' + URL_REGEXP_DATEOPTION + page + URL_REGEXP_QUERYOPTION
+    #print url_regexp
     body['reportRequests'][0]['dimensionFilterClauses'][0]['filters'].append({
       'operator': "REGEXP",
       'dimensionName': 'ga:pagePath',
@@ -103,11 +112,17 @@ def get_report(analytics):
   for metric in PAGE_METRICS:
     body['reportRequests'][0]['metrics'].append({'expression': metric})
 
+  #print body
+
   return analytics.reports().batchGet(body=body).execute()
 
 
-def print_response(response):
+def print_response(response, printHeader):
   """Parses and prints the Analytics Reporting API V4 response"""
+  #print response
+  #print
+
+  # TODO: import this into a Pandas dataframe, add a total row, export to csv
 
   for report in response.get('reports', []):
     columnHeader = report.get('columnHeader', {})
@@ -115,23 +130,46 @@ def print_response(response):
     metricHeaders = columnHeader.get('metricHeader', {}).get('metricHeaderEntries', [])
     rows = report.get('data', {}).get('rows', [])
 
+    if printHeader:
+      str = ""
+      for header in dimensionHeaders:
+        str = str + header + ","
+      for metricHeader in metricHeaders:
+        #print metricHeader.get('name') + ': ' + value
+        str = str + metricHeader.get('name') + ","
+      str = str[:-1]
+      print str
+
     for row in rows:
       dimensions = row.get('dimensions', [])
       dateRangeValues = row.get('metrics', [])
 
+      str = ""
       for header, dimension in zip(dimensionHeaders, dimensions):
-        print header + ': ' + dimension
+        #print header.encode('utf-8') + ': ' + dimension.encode('utf-8')
+        str = dimension.encode('utf-8')
 
       values = dateRangeValues[0]
       for metricHeader, value in zip(metricHeaders, values.get('values')):
-        print metricHeader.get('name') + ': ' + value
-
+        #print metricHeader.get('name') + ': ' + value
+        str = str + "," + value
+      print str
 
 def main():
 
   analytics = initialize_analyticsreporting()
-  response = get_report(analytics)
-  print_response(response)
+  # TODO: cycle through months from June 1 2015 to Feb 28 2017
+  # TODO: dont forget to increase page token size to 10000
+  nextPageToken = 0
+  while True:
+    response = get_report(analytics, 10, nextPageToken)
+    print_response(response, nextPageToken==0)
+
+    report = response['reports'][0]
+    if not 'nextPageToken' in report:
+        break
+
+    nextPageToken = report['nextPageToken']
 
 if __name__ == '__main__':
   main()
