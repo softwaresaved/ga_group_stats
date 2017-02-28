@@ -16,4 +16,4 @@ ENDDATE = '2017-02-28'
 PAGE_METRICS = ['ga:pageviews', 'ga:uniquepageviews']
 
 # Where to put downloaded raw GA monthly datasets
-OUTPUT_DIR = 'ga_raw_data'
+GA_OUTPUT_DIR = 'ga_raw_data'

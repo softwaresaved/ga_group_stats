@@ -21,7 +21,7 @@ from oauth2client import file
 from oauth2client import tools
 
 from download_config import (LOGFILE_DIR, CLIENT_SECRETS_PATH,
-    STARTDATE, ENDDATE, PAGE_METRICS, OUTPUT_DIR)
+    STARTDATE, ENDDATE, PAGE_METRICS, GA_OUTPUT_DIR)
 
 
 SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
@@ -193,7 +193,7 @@ def main():
         df = get_monthly_ga_data(analytics, columns,
                                  report_startdate, report_enddate)
         print "  Generating CSV " + csv_filename + "..."
-        df.to_csv(os.path.join(OUTPUT_DIR, csv_filename), encoding='utf-8')
+        df.to_csv(os.path.join(GA_OUTPUT_DIR, csv_filename), encoding='utf-8')
 
         # Calculate our next monthly time period
         report_startdate = report_startdate + relativedelta(months=1)
