@@ -1,5 +1,11 @@
 # Config file for download_all_monthly.py
 
+# Where our downloaded credentials are stored
+CLIENT_SECRETS_PATH = 'auth_secret/client_secrets.json'
+
+# Where to store log files
+LOGFILE_DIR = 'logs'
+
 # Start and end dates you want for stats
 STARTDATE = '2017-01-01'
 ENDDATE = '2017-02-28'

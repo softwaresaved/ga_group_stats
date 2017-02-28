@@ -20,19 +20,20 @@ from oauth2client import client
 from oauth2client import file
 from oauth2client import tools
 
-from download_config import STARTDATE, ENDDATE, PAGE_METRICS, OUTPUT_DIR
+from download_config import (LOGFILE_DIR, CLIENT_SECRETS_PATH,
+    STARTDATE, ENDDATE, PAGE_METRICS, OUTPUT_DIR)
 
 
 SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 DISCOVERY_URI = ('https://analyticsreporting.googleapis.com/$discovery/rest')
-CLIENT_SECRETS_PATH = 'auth_secret/client_secrets.json'
 VIEW_ID = '31084866'  # The SSI software.ac.uk view id
 
 # Set default logging (only set if none already defined)
-logging.basicConfig(filename='download.log',
+logfile = 'download-' + datetime.now().strftime('%Y-%m-%d-%H-%M') + '.log'
+logging.basicConfig(filename=os.path.join(LOGFILE_DIR, logfile),
                     format='%(asctime)s - %(levelname)s %(funcName)s() - %(message)s')
 log = logging.getLogger()
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
 
 # Regexps for matching optional page prefixes and query suffixes on pages
 URL_REGEXP_DATEOPTION = '(?:[0-9]{4}-[0-9]{2}-[0-9]{2}-){0,1}'
@@ -130,15 +131,15 @@ def append_to_dataframe(df, response):
             dimensions = row.get('dimensions', [])
             dateRangeValues = row.get('metrics', [])
 
-        df_row = []
-        for header, dimension in zip(dimensionHeaders, dimensions):
-            df_row.append(dimension.encode('utf-8'))
+            df_row = []
+            for header, dimension in zip(dimensionHeaders, dimensions):
+                df_row.append(dimension.encode('utf-8'))
 
-        values = dateRangeValues[0]
-        for metricHeader, value in zip(metricHeaders, values.get('values')):
-            df_row.append(value.encode('utf-8'))
+            values = dateRangeValues[0]
+            for metricHeader, value in zip(metricHeaders, values.get('values')):
+                df_row.append(value.encode('utf-8'))
 
-        df.loc[len(df)] = df_row
+            df.loc[len(df)] = df_row
 
     log.info("Appended to dataframe from response")
     log.debug(str(df))
@@ -183,13 +184,13 @@ def main():
     report_startdate = startdate
     while report_startdate <= enddate:
         report_enddate = report_startdate + relativedelta(months=1) - relativedelta(days=1)
-        date_suffix = report_startdate.strftime('%Y-%m')
+        csv_filename = 'ga-report-' + report_startdate.strftime('%Y-%m') + '.csv'
 
         # Get all GA data for that month, save to separate csv
         df = get_monthly_ga_data(analytics, columns,
                                  report_startdate, report_enddate)
-        df.to_csv(os.path.join(OUTPUT_DIR, 'ga-report-'+date_suffix+'.csv'),
-                               encoding='utf-8')
+        df = df.append(df.sum(numeric_only=True), ignore_index=True)
+        df.to_csv(os.path.join(OUTPUT_DIR, csv_filename), encoding='utf-8')
 
         # Calculate our next monthly time period
         report_startdate = report_startdate + relativedelta(months=1)
