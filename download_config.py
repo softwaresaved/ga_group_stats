@@ -7,7 +7,7 @@ CLIENT_SECRETS_PATH = 'auth_secret/client_secrets.json'
 LOGFILE_DIR = 'logs'
 
 # Start and end dates you want for stats
-STARTDATE = '2017-01-01'
+STARTDATE = '2015-06-01'
 ENDDATE = '2017-02-28'
 
 # The overall Google Analytics metrics you want

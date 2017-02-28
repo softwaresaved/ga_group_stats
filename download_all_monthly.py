@@ -28,16 +28,16 @@ SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 DISCOVERY_URI = ('https://analyticsreporting.googleapis.com/$discovery/rest')
 VIEW_ID = '31084866'  # The SSI software.ac.uk view id
 
+# Regexps for matching optional page prefixes and query suffixes on pages
+URL_REGEXP_DATEOPTION = '(?:[0-9]{4}-[0-9]{2}-[0-9]{2}-){0,1}'
+URL_REGEXP_QUERYOPTION = '(?:\?.*){0,1}$'
+
 # Set default logging (only set if none already defined)
 logfile = 'download-' + datetime.now().strftime('%Y-%m-%d-%H-%M') + '.log'
 logging.basicConfig(filename=os.path.join(LOGFILE_DIR, logfile),
                     format='%(asctime)s - %(levelname)s %(funcName)s() - %(message)s')
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)
-
-# Regexps for matching optional page prefixes and query suffixes on pages
-URL_REGEXP_DATEOPTION = '(?:[0-9]{4}-[0-9]{2}-[0-9]{2}-){0,1}'
-URL_REGEXP_QUERYOPTION = '(?:\?.*){0,1}$'
 
 
 def initialize_analyticsreporting():
@@ -186,10 +186,13 @@ def main():
         report_enddate = report_startdate + relativedelta(months=1) - relativedelta(days=1)
         csv_filename = 'ga-report-' + report_startdate.strftime('%Y-%m') + '.csv'
 
+        print "Processing " + report_startdate.strftime('%Y-%m') + "..."
+
         # Get all GA data for that month, save to separate csv
+        print "  Obtaining data from Google Analytics..."
         df = get_monthly_ga_data(analytics, columns,
                                  report_startdate, report_enddate)
-        df = df.append(df.sum(numeric_only=True), ignore_index=True)
+        print "  Generating CSV " + csv_filename + "..."
         df.to_csv(os.path.join(OUTPUT_DIR, csv_filename), encoding='utf-8')
 
         # Calculate our next monthly time period
