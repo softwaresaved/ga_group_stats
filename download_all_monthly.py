@@ -28,10 +28,6 @@ SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 DISCOVERY_URI = ('https://analyticsreporting.googleapis.com/$discovery/rest')
 VIEW_ID = '31084866'  # The SSI software.ac.uk view id
 
-# Regexps for matching optional page prefixes and query suffixes on pages
-URL_REGEXP_DATEOPTION = '(?:[0-9]{4}-[0-9]{2}-[0-9]{2}-){0,1}'
-URL_REGEXP_QUERYOPTION = '(?:\?.*){0,1}$'
-
 # Set default logging (only set if none already defined)
 logfile = 'download-' + datetime.now().strftime('%Y-%m-%d-%H-%M') + '.log'
 logging.basicConfig(filename=os.path.join(LOGFILE_DIR, logfile),
