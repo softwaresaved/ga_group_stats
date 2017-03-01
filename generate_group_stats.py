@@ -154,9 +154,9 @@ def main():
         monthly_df.to_csv(os.path.join(REP_OUTPUT_DIR, csv_filename), encoding='utf-8')
 
         log.info("Integrating monthly stat totals into summary dataframe")
-        m_summary = monthly_df.sum(numeric_only=True)
-        m_summary.set_value('Month', report_startdate.strftime('%Y-%m'))
-        summary_df = summary_df.append(m_summary, ignore_index=True)
+        summary = monthly_df.sum(numeric_only=True)
+        summary.set_value('Month', report_startdate.strftime('%Y-%m'))
+        summary_df = summary_df.append(summary, ignore_index=True)
 
         log.info("Integrating page groupings and stats into summary dataframe")
         complete_df = complete_df.append(monthly_df, ignore_index=True)
@@ -170,28 +170,21 @@ def main():
 
     # Create aggregate view of all common core pages, summing all numeric
     # columns (e.g. metrics) and concatenating all string columns (e.g. the
-    # page lists)
+    # page lists). Finally, add a totals row
     c1 = complete_df.groupby('ga:pagepath', as_index=False).sum()
     c2 = complete_df.groupby('ga:pagepath').agg(lambda x: ', '.join(set(x))).reset_index()
     complete_df = pd.merge(c1, c2, on='ga:pagepath', how='outer')
     complete_df = complete_df.append(complete_df.sum(numeric_only=True),
                                      ignore_index=True)
 
-    # Save our monthly summary dataframe as CSV
-    monthly_csv_filename = ('ga-summary-' + os.path.basename(URL_LIST_FILE)
-                            + '-' + startdate.strftime('%Y-%m')
-                            + '--' + enddate.strftime('%Y-%m') + '.csv')
-    log.info("Saving aggregate GA report " + monthly_csv_filename)
-    summary_df.to_csv(os.path.join(REP_OUTPUT_DIR, monthly_csv_filename),
-                      encoding='utf-8')
-
-    # Save our complete page summary dataframe as CSV
-    complete_csv_filename = ('ga-complete-' + os.path.basename(URL_LIST_FILE)
-                             + '-' + startdate.strftime('%Y-%m')
-                             + '--' + enddate.strftime('%Y-%m') + '.csv')
-    log.info("Saving aggregate GA report " + complete_csv_filename)
-    complete_df.to_csv(os.path.join(REP_OUTPUT_DIR, complete_csv_filename),
-                       encoding='utf-8')
-
+    # Save our summary report dataframes as CSV
+    reports = [['ga-summary-', summary_df], ['ga-complete-', complete_df]]
+    for filename_prefix, df in reports:
+        csv_filename = (filename_prefix + os.path.basename(URL_LIST_FILE)
+                        + '-' + startdate.strftime('%Y-%m')
+                        + '--' + enddate.strftime('%Y-%m') + '.csv')
+        log.info("Saving aggregate GA report " + csv_filename)
+        df.to_csv(os.path.join(REP_OUTPUT_DIR, csv_filename),
+                  encoding='utf-8')
 if __name__ == '__main__':
     main()
