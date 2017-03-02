@@ -104,7 +104,7 @@ for within the time period, held in the `url_lists/` directory,
 with a single URL per line
 
 
-### Specifying the URLs to check
+### Specifying the URLs to check, and how searching works
 
 For each URL you wish to process, add a line to a file specified
 by `URL_LIST_FILE` in `generate_config.py`. Note that these
@@ -117,18 +117,16 @@ website. The ones supported, which seem to cater for at least
 - Those which are the exact URL, e.g. `http://software.ac.uk/blog/whats-wrong-computer-scientists`
 - Those which have a date prefix, e.g. `http://software.ac.uk/blog/2013-10-31-whats-wrong-computer-scientists`
 - Those which have a querystring suffix, e.g. `http://software.ac.uk/blog/2013-10-31-whats-wrong-computer-scientists?mpw=`
-
-Or any combination of the above. All others, which shouldn't be
-counted, are ignored in statistics calculations, e.g. those with
-prefixes `404`, `/search?`, etc.
-
-
-### How URL matching works
+- Those which are a combination of the last two
 
 Essentially, the URLs which are supplied are 'shortened' to their
-core path and page meaning, e.g. `blog/whats-wrong-computer-scientists`,
+core path and page 'meaning', e.g. `blog/whats-wrong-computer-scientists`,
 to be used for searching. This ensures that variants of this core
-page can be found.
+page can be found. All others, which shouldn't be counted, are
+ignored in statistics calculations, e.g. those with prefixes `404`,
+`/search?`, etc. Any duplicates in the URL list that will
+essentially match the same page more than once are ignored (so
+search results are only counted once).
 
 
 ### Running the tool
@@ -144,7 +142,7 @@ In the `reports/` directory, you should see:
 
 * A number of Comma-Separated Value (CSV) reports with filenames matching
 `ga-report-<url-file>-<year-month>.csv`, each containing summaries across
-all core pages for each given metric.
+all core pages for each given metric
 * A `ga-summary-<url-file>-<time-period>.csv` CSV report which contains
 a monthly breakdown over the time period for the given metrics
 * A `ga-complete-<url-file>-<time-period>.csv` CSV report which contains
