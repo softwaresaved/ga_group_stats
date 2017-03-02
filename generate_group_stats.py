@@ -140,22 +140,24 @@ def main():
     report_startdate = startdate
     while report_startdate <= enddate:
         report_enddate = report_startdate + relativedelta(months=1) - relativedelta(days=1)
-        csv_filename = 'ga-report-' + report_startdate.strftime('%Y-%m') + '.csv'
+        csv_in_filename = 'ga-report-' + report_startdate.strftime('%Y-%m') + '.csv'
+        csv_out_filename = ('ga-report-' + os.path.basename(URL_LIST_FILE) + '-'
+                            + report_startdate.strftime('%Y-%m') + '.csv')
 
-        if not os.path.exists(os.path.join(GA_OUTPUT_DIR, csv_filename)):
-            log.error("Could not find GA raw data csv file " + csv_filename)
-            print("**** Could not find GA raw data csv file " + csv_filename)
+        if not os.path.exists(os.path.join(GA_OUTPUT_DIR, csv_in_filename)):
+            log.error("Could not find GA raw data csv file " + csv_in_filename)
+            print("**** Could not find GA raw data csv file " + csv_in_filename)
             sys.exit(1)
 
-        log.info("Processing " + csv_filename + "...")
-        print("Processing " + csv_filename + "...")
-        monthly_df = pd.read_csv(os.path.join(GA_OUTPUT_DIR, csv_filename),
+        log.info("Processing " + csv_in_filename + "...")
+        print("Processing " + csv_in_filename + "...")
+        monthly_df = pd.read_csv(os.path.join(GA_OUTPUT_DIR, csv_in_filename),
                                  index_col=0)
 
         log.info("Extracting monthly summary data for specified URLs")
         monthly_df = summarise_by_core_pages(search_terms, monthly_df)
         monthly_df = monthly_df.sort_values(by='ga:pageviews', ascending=False)
-        monthly_df.to_csv(os.path.join(REP_OUTPUT_DIR, csv_filename), encoding='utf-8')
+        monthly_df.to_csv(os.path.join(REP_OUTPUT_DIR, csv_out_filename), encoding='utf-8')
 
         log.info("Integrating monthly stat totals into summary dataframe")
         summary = monthly_df.sum(numeric_only=True)
@@ -168,16 +170,17 @@ def main():
         # Calculate our next monthly time period
         report_startdate = report_startdate + relativedelta(months=1)
 
-    # Append a set of column totals to our summary dataframe
+    # Append a set of column totals to our monthly summary dataframe
     summary_df = summary_df.append(summary_df.sum(numeric_only=True),
                                    ignore_index=True)
 
     # Create aggregate view of all common core pages, summing all numeric
     # columns (e.g. metrics) and concatenating all string columns (e.g. the
-    # page lists). Finally, add a totals row
+    # page lists). Finally, sort by first metric in PAGE_METRICS, add totals row
     c1 = complete_df.groupby('ga:pagepath', as_index=False).sum()
     c2 = complete_df.groupby('ga:pagepath').agg(lambda x: ', '.join(set(x))).reset_index()
     complete_df = pd.merge(c1, c2, on='ga:pagepath', how='outer')
+    complete_df = complete_df.sort_values(by=PAGE_METRICS[0], ascending=False)
     complete_df = complete_df.append(complete_df.sum(numeric_only=True),
                                      ignore_index=True)
 
