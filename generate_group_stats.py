@@ -46,6 +46,10 @@ def extract_core_url(url):
   url_path = urlparse(url).path
   path, page = os.path.split(url_path.strip())
 
+  # If our path is effectively empty (just '/'), make it an empty string
+  # otherwise matches on root pages won't work
+  path = '' if path == '/' else path
+
   # Remove any fixed date already prefixed to page name, to increase chances
   # we'll find any duplicate content (with perhaps other fixed date prefixes)
   core_page = re.sub('^' + URL_REGEXP_DATEOPTION, '', page)
@@ -178,6 +182,8 @@ def main():
                                      ignore_index=True)
 
     # Save our summary report dataframes as CSV
+    log.info("Saving summary reports...")
+    print "Saving summary reports..."
     reports = [['ga-summary-', summary_df], ['ga-complete-', complete_df]]
     for filename_prefix, df in reports:
         csv_filename = (filename_prefix + os.path.basename(URL_LIST_FILE)
