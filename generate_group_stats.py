@@ -10,7 +10,7 @@ import sys
 import re
 import pandas as pd
 import logging
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
@@ -98,7 +98,7 @@ def summarise_by_core_pages(search_terms, df):
   :return: dataframe containing summary of all found pages
   """
   new_df = pd.DataFrame(columns=df.columns.values)
-  for core_page, page_regexp in search_terms.iteritems():
+  for core_page, page_regexp in search_terms.items():
     log.debug("Calculating for " + core_page + ", using regexp:")
     log.debug(page_regexp)
 
@@ -144,11 +144,11 @@ def main():
 
         if not os.path.exists(os.path.join(GA_OUTPUT_DIR, csv_filename)):
             log.error("Could not find GA raw data csv file " + csv_filename)
-            print "**** Could not find GA raw data csv file " + csv_filename
+            print("**** Could not find GA raw data csv file " + csv_filename)
             sys.exit(1)
 
         log.info("Processing " + csv_filename + "...")
-        print "Processing " + csv_filename + "..."
+        print("Processing " + csv_filename + "...")
         monthly_df = pd.read_csv(os.path.join(GA_OUTPUT_DIR, csv_filename),
                                  index_col=0)
 
@@ -183,7 +183,7 @@ def main():
 
     # Save our summary report dataframes as CSV
     log.info("Saving summary reports...")
-    print "Saving summary reports..."
+    print("Saving summary reports...")
     reports = [['ga-summary-', summary_df], ['ga-complete-', complete_df]]
     for filename_prefix, df in reports:
         csv_filename = (filename_prefix + os.path.basename(URL_LIST_FILE)

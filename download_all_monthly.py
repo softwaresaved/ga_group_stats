@@ -8,8 +8,6 @@ import re
 import argparse
 import pandas as pd
 import logging
-from sets import Set
-from urlparse import urlparse
 
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
@@ -129,11 +127,11 @@ def append_to_dataframe(df, response):
 
             df_row = []
             for header, dimension in zip(dimensionHeaders, dimensions):
-                df_row.append(dimension.encode('utf-8'))
+                df_row.append(dimension)
 
             values = dateRangeValues[0]
             for metricHeader, value in zip(metricHeaders, values.get('values')):
-                df_row.append(value.encode('utf-8'))
+                df_row.append(value)
 
             df.loc[len(df)] = df_row
 
@@ -182,13 +180,13 @@ def main():
         report_enddate = report_startdate + relativedelta(months=1) - relativedelta(days=1)
         csv_filename = 'ga-report-' + report_startdate.strftime('%Y-%m') + '.csv'
 
-        print "Processing " + report_startdate.strftime('%Y-%m') + "..."
+        print("Processing " + report_startdate.strftime('%Y-%m') + "...")
 
         # Get all GA data for that month, save to separate csv
-        print "  Obtaining data from Google Analytics..."
+        print("  Obtaining data from Google Analytics...")
         df = get_monthly_ga_data(analytics, columns,
                                  report_startdate, report_enddate)
-        print "  Generating CSV " + csv_filename + "..."
+        print("  Generating CSV " + csv_filename + "...")
         df.to_csv(os.path.join(GA_OUTPUT_DIR, csv_filename), encoding='utf-8')
 
         # Calculate our next monthly time period
