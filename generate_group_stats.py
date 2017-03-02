@@ -156,7 +156,7 @@ def main():
 
         log.info("Extracting monthly summary data for specified URLs")
         monthly_df = summarise_by_core_pages(search_terms, monthly_df)
-        monthly_df = monthly_df.sort_values(by='ga:pageviews', ascending=False)
+        monthly_df = monthly_df.sort_values(by=PAGE_METRICS[0], ascending=False)
         monthly_df.to_csv(os.path.join(REP_OUTPUT_DIR, csv_out_filename), encoding='utf-8')
 
         log.info("Integrating monthly stat totals into summary dataframe")
