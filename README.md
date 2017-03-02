@@ -20,7 +20,7 @@ period unless further monthly data sets are downloaded.
 
 ### Generating reports
 
-* [url_lists/]() - Directory of files each holding sets of pages to process,
+* [url_lists/](url_lists) - Directory of files each holding sets of pages to process,
 one URL per line
 * [generate_config.py]() - The configuration file where you specify the
 start and end dates for the analysis period, the metrics you wish to
@@ -42,7 +42,7 @@ there is no need to use this capability unless expanding the set of
 overall monthly stats it can use:
 
 * [auth_secret/]() - Contains `client-secrets.json` file to hold credential
-to authenticate with GA. See [https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py]()
+to authenticate with GA. See [https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py](https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py)
 for details on how to obtain a usable credential based on your Google
 account, using the Google Developers Console. Your Google account will
 need to be first authorised within GA by a GA site administrator
@@ -96,7 +96,7 @@ Edit the `generate_config.py` file and edit the following parameters:
 which you wish to generate reports, in `YYYY-MM-DD` format
 * `PAGE_METRICS` - The metrics you wish to capture. Typical ones are
 for overall page views `ga:pageviews` and unique page views
-`ga:uniquepageviews`. You can find others at [https://developers.google.com/analytics/devguides/reporting/core/dimsmets](),
+`ga:uniquepageviews`. You can find others at [https://developers.google.com/analytics/devguides/reporting/core/dimsmets](https://developers.google.com/analytics/devguides/reporting/core/dimsmets),
 but note that only these two have been currently tested. Note that
 generated reports will be sorted by the first metric specified
 * `URL_LIST_FILE` - The file of URLs you wish to generate reports
