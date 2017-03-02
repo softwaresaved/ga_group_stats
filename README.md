@@ -82,7 +82,7 @@ requirements need to be satisfied:
 * Google account authorised with GA site administrator
 * Generated and downloaded GA JSON credential
 
-See [https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py]()
+See [https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py](https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py)
 for more details on generating a GA JSON credential.
 
 
