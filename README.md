@@ -149,7 +149,8 @@ a monthly breakdown over the time period for the given metrics
 an overall breakdown, per core page, for the given metrics
 
 Note that each report will be sorted by the first metric specified
-in `PAGE_METRICS` given in `generate_config.py`.
+in `PAGE_METRICS` given in `generate_config.py`, and reports generated
+will overwrite any existing ones.
 
 
 ## Downloading GA stats data
