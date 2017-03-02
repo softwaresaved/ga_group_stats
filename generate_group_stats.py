@@ -122,6 +122,10 @@ def summarise_by_core_pages(search_terms, df):
 
 
 def main():
+    # Split string by comma into list, remove blank entries, remove duplicates
+    # by converting to a set
+    remove_page_duplicates = lambda x: ', '.join(set(filter(None, x.split(','))))
+
     # The entire search date range and column data we want
     startdate = datetime.strptime(STARTDATE, '%Y-%m-%d')
     enddate = datetime.strptime(ENDDATE, '%Y-%m-%d')
@@ -174,12 +178,16 @@ def main():
     summary_df = summary_df.append(summary_df.sum(numeric_only=True),
                                    ignore_index=True)
 
-    # Create aggregate view of all common core pages, summing all numeric
-    # columns (e.g. metrics) and concatenating all string columns (e.g. the
-    # page lists). Finally, sort by first metric in PAGE_METRICS, add totals row
+    # Create aggregate views of:
+    #  - all common core pages, summing all numeric columns (e.g. metrics)
+    #  - all string columns (e.g. the page lists)
+    # Then merge them on ga:pagepath
     c1 = complete_df.groupby('ga:pagepath', as_index=False).sum()
-    c2 = complete_df.groupby('ga:pagepath').agg(lambda x: ', '.join(set(x))).reset_index()
+    c2 = complete_df.groupby('ga:pagepath').agg(lambda x: ','.join(set(x))).reset_index()
     complete_df = pd.merge(c1, c2, on='ga:pagepath', how='outer')
+    # Remove any duplicate full page entries in each Pages row
+    complete_df['Pages'] = complete_df['Pages'].map(remove_page_duplicates)
+    # Finally, sort by first metric in PAGE_METRICS, and add totals row
     complete_df = complete_df.sort_values(by=PAGE_METRICS[0], ascending=False)
     complete_df = complete_df.append(complete_df.sum(numeric_only=True),
                                      ignore_index=True)
