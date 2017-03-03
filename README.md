@@ -54,7 +54,7 @@ which you wish to generate reports, in `YYYY-MM-DD` format. The defaults
 are for the SSI2 project timeframe, from June 1 2015 to February 28 2017.
 * `PAGE_METRICS` - The metrics you wish to capture. Typical ones are
 for overall page views `ga:pageviews` and unique page views
-`ga:uniquepageviews`, which are set as defaults.. You can find others
+`ga:uniquepageviews`, which are set as defaults. You can find others
 at [https://developers.google.com/analytics/devguides/reporting/core/dimsmets](https://developers.google.com/analytics/devguides/reporting/core/dimsmets),
 but note that only these two have been currently tested. The
 generated reports will be sorted by the first metric specified
