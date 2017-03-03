@@ -16,9 +16,9 @@ reports can only be generated within (or equal to) this current time
 period unless further monthly data sets are downloaded.
 
 
-## How it's put together
+## Generating reports
 
-### Generating reports
+### How it's put together
 
 * [url_lists/](url_lists) - Directory of files each holding sets of pages to process,
 one URL per line
@@ -35,31 +35,7 @@ entire website, used by `generate_group_stats.py`
 `generate-<date>.log`
 
 
-### Downloading GA stats data
-
-Given the data has already been downloaded and stored in this repository,
-there is no need to use this capability unless expanding the set of
-overall monthly stats it can use:
-
-* [auth_secret/](auth_secret) - Contains `client-secrets.json` file to hold credential
-to authenticate with GA. See [https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py](https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py)
-for details on how to obtain a usable credential based on your Google
-account, using the Google Developers Console. Your Google account will
-need to be first authorised within GA by a GA site administrator
-* [download_config.py](download_config.py) - The configuration file to specify the start and
-end dates for obtaining entire website statistics from GA, the metrics
-to capture, and the Google credential to use to authenticate with GA
-* [download_all_config.py](download_all_config.py) - The script which takes the configuration in
-`download_config.py` and downloads the monthly website statistics from GA
-* [ga_raw_data/](ga_raw_data) - Directory which will hold the downoaded monthly
-statistics
-* [logs/](logs) - Directory which holds log files for processing runs, named
-`download-<date>.log`
-
-
-## Requirements
-
-### Generating reports
+### Requirements
 
 * Python 3 (tested on Python 3.6.0)
 * Python libraries (installable via `pip install -r requirements.txt` - 
@@ -68,26 +44,6 @@ development and testing, others may work):
     * pandas
     * numpy
 
-
-### Downloading GA stats data
-
-There's no need to satisfy these requirements if you only want to
-generate reports. It's only needed if you want to expand the existing
-GA monthly data sets beyond the currently stored period data (see above).
-
-In addition to the requirements for generating reports, these additional
-requirements need to be satisfied:
-
-* Python libraries
-    * google-api-python-client (only needed for downloading statistics)
-* Google account authorised with GA site administrator
-* Generated and downloaded GA JSON credential
-
-See [https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py](https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py)
-for more details on generating a GA JSON credential.
-
-
-## Generating reports
 
 ### Configuration
 
@@ -139,7 +95,7 @@ registered in GA as page hits regardless - shouldn't be counted are ignored
 in statistics calculations, e.g. those with prefixes `404`, `/search?`, etc.
 
 
-### Running the tool
+### Running the report generation tool
 
 Simply type `python generate_group_stats.py` at the command line. A
 summary of progress for processing and generating reports per month,
@@ -164,5 +120,49 @@ will overwrite any existing ones.
 
 
 ## Downloading GA stats data
+
+### How it's put together
+
+Given the data has already been downloaded and stored in this repository,
+there is no need to use this capability unless you wish to expand the set
+of overall monthly stats it can use:
+
+* [auth_secret/](auth_secret) - Contains `client-secrets.json` file to hold credential
+to authenticate with GA. See [https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py](https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py)
+for details on how to obtain a usable credential based on your Google
+account, using the Google Developers Console. Your Google account will
+need to be first authorised within GA by a GA site administrator
+* [download_config.py](download_config.py) - The configuration file to specify the start and
+end dates for obtaining entire website statistics from GA, the metrics
+to capture, and the Google credential to use to authenticate with GA
+* [download_all_config.py](download_all_config.py) - The script which takes the configuration in
+`download_config.py` and downloads the monthly website statistics from GA
+* [ga_raw_data/](ga_raw_data) - Directory which will hold the downoaded monthly
+statistics
+* [logs/](logs) - Directory which holds log files for processing runs, named
+`download-<date>.log`
+
+### Requirements
+
+There's no need to satisfy these requirements if you only want to
+generate reports. It's only needed if you want to expand the existing
+GA monthly data sets beyond the currently stored period data (see above).
+
+In addition to the requirements for generating reports, these additional
+requirements need to be satisfied:
+
+* Python libraries
+    * google-api-python-client (only needed for downloading statistics)
+* Google account authorised with GA site administrator
+* Generated and downloaded GA JSON credential
+
+See [https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py](https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py)
+for more details on generating a GA JSON credential.
+
+### Configuration
+
+To be completed.
+
+### Running the download tool
 
 To be completed.
