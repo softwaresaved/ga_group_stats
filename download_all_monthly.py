@@ -1,6 +1,6 @@
 """
 Using Google Analytics V4 API, download all Google Analytics data for each
-month between specified start date and end date. Uses Google Analytics V4 API.
+month between specified start date and end date.
 """
 
 import os
