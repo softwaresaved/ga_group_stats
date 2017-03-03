@@ -72,10 +72,10 @@ def build_regexp_url(path, core_page):
 
 
 def calculate_search_terms(url_file):
-    """Generate a list of core pages to search for based on file of URLs.
+    """Generate a list of unique core pages to search for based on file of URLs.
 
     :param url_file: str the file of URLs, one per line
-    :return: list of core pages
+    :return: list of unique core pages, including paths
     """
     core_pages = {}
     file = open(url_file, 'r')
