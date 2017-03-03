@@ -52,12 +52,13 @@ Edit the `generate_config.py` file and edit the following parameters:
 * `STARTDATE`, `ENDDATE` - The start and end dates for the period for
 which you wish to generate reports, in `YYYY-MM-DD` format. The defaults
 are for the SSI2 project timeframe, from June 1 2015 to February 28 2017.
-* `PAGE_METRICS` - The metrics you wish to capture. Typical ones are
-for overall page views `ga:pageviews` and unique page views
+* `PAGE_METRICS` - The metrics you wish to capture. The ones supported at
+the moment are overall page views `ga:pageviews` and unique page views
 `ga:uniquepageviews`, which are set as defaults. You can find others
 at [https://developers.google.com/analytics/devguides/reporting/core/dimsmets](https://developers.google.com/analytics/devguides/reporting/core/dimsmets),
-but note that only these two have been currently tested. The
-generated reports will be sorted by the first metric specified
+so if you'd like others to be added raise an [issue](https://github.com/softwaresaved/ga_group_stats/issues)
+on this repository. Note that generated reports will be sorted by the
+first metric specified
 * `URL_LIST_FILE` - The file of URLs you wish to generate reports
 for within the time period, held in the `url_lists/` directory,
 with a single URL per line. The default file given is for a small
