@@ -2,13 +2,13 @@
 
 Given a set of URLs in a text file, a list of GA metrics to capture,
 and a start and end date, this tool provides the following website
-statistic reports for the given time period for those URLs:
+statistic reports in CSV format for the given time period for those URLs:
 
-* An overall, sorted summary of summed metrics per month
-* An overall, sorted summary of pageviews per page, including a list of
+* An overall summary of summed metrics per month
+* An overall, sorted summary of metrics per page, including a list of
 URLs per page that are just variants of the same URL - i.e. they are the
 same page and should be counted as such
-* Individual monthly reports of pageviews per page
+* Individual monthly reports of metrics (and page variants) per page
 
 It uses a pre-downloaded set of monthly GA data for the entire website,
 which currently exists for the period June 2015 - February 2017. Thus,
