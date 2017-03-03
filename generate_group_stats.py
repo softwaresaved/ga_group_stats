@@ -174,11 +174,7 @@ def main():
         # Calculate our next monthly time period
         report_startdate = report_startdate + relativedelta(months=1)
 
-    # Append a set of column totals to our monthly summary dataframe
-    summary_df = summary_df.append(summary_df.sum(numeric_only=True),
-                                   ignore_index=True)
-
-    # Create aggregate views of:
+    # For our complete pages report, create aggregate views of:
     #  - all common core pages, summing all numeric columns (e.g. metrics)
     #  - all string columns (e.g. the page lists)
     # Then merge them on ga:pagepath
@@ -187,10 +183,8 @@ def main():
     complete_df = pd.merge(c1, c2, on='ga:pagepath', how='outer')
     # Remove any duplicate full page entries in each Pages row
     complete_df['Pages'] = complete_df['Pages'].map(remove_page_duplicates)
-    # Finally, sort by first metric in PAGE_METRICS, and add totals row
+    # Finally, sort by first metric in PAGE_METRICS
     complete_df = complete_df.sort_values(by=PAGE_METRICS[0], ascending=False)
-    complete_df = complete_df.append(complete_df.sum(numeric_only=True),
-                                     ignore_index=True)
 
     # Save our summary report dataframes as CSV
     log.info("Saving summary reports...")
