@@ -63,7 +63,8 @@ statistics
 
 * Python 3 (tested on Python 3.6.0)
 * Python libraries (installable via `pip install -r requirements.txt` - 
-see `requirements.txt` for specific version details):
+see `requirements.txt` for specific details of versions used during
+development and testing, others may work):
     * pandas
     * numpy
 
@@ -104,29 +105,38 @@ for within the time period, held in the `url_lists/` directory,
 with a single URL per line
 
 
-### Specifying the URLs to check, and how searching works
+### How searching works, and specifying the URLs to check
 
 For each URL you wish to process, add a line to a file specified
-by `URL_LIST_FILE` in `generate_config.py`. Note that these
-a number of different permutations of the same URL are supported,
-given the ways GA reports page hits and the different naming
-conventions that have been historically supported across our
-website. The ones supported, which seem to cater for at least
-99.9% of cases, are:
+by `URL_LIST_FILE` in `generate_config.py`.
 
-- Those which are the exact URL, e.g. `http://software.ac.uk/blog/whats-wrong-computer-scientists`
-- Those which have a date prefix, e.g. `http://software.ac.uk/blog/2013-10-31-whats-wrong-computer-scientists`
-- Those which have a querystring suffix, e.g. `http://software.ac.uk/blog/2013-10-31-whats-wrong-computer-scientists?mpw=`
-- Those which are a combination of the last two
+The tool is designed to cater for the various idiosyncracies in how
+GA reports page hits multiple times for the same actual content, and
+the different page naming conventions that have been historically
+supported across our website.
+
+Therefore, when it comes to searching the GA data, a number of
+different permutations of the same URL are supported, which seem
+to cater for 99% of cases. These are:
+
+- Those that are the exact URL, e.g. `http://software.ac.uk/blog/whats-wrong-computer-scientists`
+- Those that have a date prefix, e.g. `http://software.ac.uk/blog/2013-10-31-whats-wrong-computer-scientists`
+- Those that have a querystring suffix, e.g. `http://software.ac.uk/blog/2013-10-31-whats-wrong-computer-scientists?mpw=`
+- Those without a protocol and domain name prefix, e.g. `/blog/whats-wrong-computer-scientists`
+- Combinations of these
 
 Essentially, the URLs which are supplied are 'shortened' to their
 core path and page 'meaning', e.g. `blog/whats-wrong-computer-scientists`,
-to be used for searching. This ensures that variants of this core
-page can be found. All others, which shouldn't be counted, are
-ignored in statistics calculations, e.g. those with prefixes `404`,
-`/search?`, etc. Any duplicates in the URL list that will
-essentially match the same page more than once are ignored (so
-search results are only counted once).
+to be used for searching. This helps to ensure that such variants of this
+core page can be found, so that stats data for a given page isn't missed.
+Any duplicate 'core pages' in the URL list file are ignored - since you
+wouldn't want to count the stats twice for the same content.
+
+It's also been implemented to ensure that other page URLs that contain that
+core page but have different content e.g. `/blog/whats-wrong-computer-scientists-part-ii`,
+are not counted. All other page hits which contain the core page - but are
+registered in GA as page hits regardless - shouldn't be counted are ignored
+in statistics calculations, e.g. those with prefixes `404`, `/search?`, etc.
 
 
 ### Running the tool
