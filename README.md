@@ -11,9 +11,11 @@ same page and should be counted as such
 * Individual monthly reports of metrics (and page variants) per page
 
 It uses a pre-downloaded set of monthly GA data for the entire website,
-which currently exists for the period June 2015 - February 2017. Thus,
+which currently exists for the period April 2010 - February 2017. Thus,
 reports can only be generated within (or equal to) this current time
-period unless further monthly data sets are downloaded.
+period unless further monthly data sets are downloaded. The default
+time period for the script is from the start of SSI2 project to February
+2017.
 
 
 ## Generating reports

@@ -1,0 +1,101 @@
+,ga:pagepath,ga:pageviews,ga:uniquepageviews
+0,/,662,376
+1,/403.html?page=/blog/2010-11-24-what-cloud-computing-got-right&from=,2,2
+2,/403.html?page=/choosing-repository-your-software-project&from=,4,3
+3,/403.html?page=/choosing-repository-your-software-project&from=http://software.ac.uk/admin,5,2
+4,/403.html?page=/snags&from=,1,1
+5,/403.html?page=/snags&from=http://software.ac.uk/admin,1,1
+6,/403.html?page=/what do we do/ahmworkshop?&from=,3,3
+7,/404.html?page=/AboutUs.html&from=,1,1
+8,/404.html?page=/Contact.html&from=,1,1
+9,/404.html?page=/download&from=,1,1
+10,/404.html?page=/guides/choosing-repository-your-software-project&from=,1,1
+11,/404.html?page=/guides/writing-readable-source-code&from=,1,1
+12,/404.html?page=/resource=&from=,1,1
+13,/404.html?page=/resources/guides/choosing-repository-your-software-project&from=http://software.ac.uk/resources/guides/migrating-project-resources-what-remember,1,1
+14,/404.html?page=/retrieving-project-resources-nescforge&from=,1,1
+15,/404.html?page=/trac&from=,4,2
+16,/404.html?page=/what do we do&from=,1,1
+17,/about,68,53
+18,/about/cite-us,3,3
+19,/about/contact,25,21
+20,/about/media,15,9
+21,/about/our-partners,61,34
+22,/about/people,70,55
+23,/blog,41,26
+24,/blog/2010-09-14-oyez-oyez-oyez-plenty-shout-about-ahm-2010,4,4
+25,/blog/2010-10-14-computational-science-eliminating-errors,1,1
+26,/blog/2010-10-14-riding-wave,12,10
+27,/blog/2010-11-24-what-cloud-computing-got-right,29,22
+28,/blog/2010-11-26-changing-software-nightmare-tracking-scientific-data,18,11
+29,/blog/2010-11-26-life-after-nescforge-surviving-repository-closure,8,7
+30,/blog/2010-11-29-geotod-meet-datagovuk-and-ordnance-survey,11,5
+31,/choosing-repository-your-software-project,6,5
+32,/creating-and-managing-sourceforge-projects,1,1
+33,/events,22,10
+34,/events/2010-09-13-uk-e-science-all-hands-meeting-2010,2,2
+35,/events/2010-11-15-competing-globally-regional-world,4,4
+36,/events/2010-11-23-ngs-innovation-forum-2010,2,2
+37,/events/2010-11-23-one-day-workshop-paper-based-techniques,16,11
+38,/events/2010-11-26-e-science-institute-call-mini-themes,15,12
+39,/login,53,36
+40,/migrating-project-resources,6,2
+41,/news,28,20
+42,/news?page=1,4,3
+43,/news/2010-06-01-future-software,1,1
+44,/news/2010-09-13-come-and-see-us-ahm-2010,3,3
+45,/news/2010-09-13-how-set-and-run-data-service-scholarships-available,1,1
+46,/news/2010-09-14-oyez-oyez-oyez-plenty-shout-about-ahm-2010,5,4
+47,/news/2010-10-14-riding-wave-report,7,5
+48,/news/2010-11-01-epcc-release-autumn-newsletter,11,7
+49,/news/2010-11-03-biosemantics-and-bioinformatics-vacancies-leiden-university-medical-centre-netherlan,22,12
+50,/news/2010-11-09-430pm-friday-12-november-2010-registration-innovation-forum-will-close,3,3
+51,/news/2010-11-12-vacancies-centre-computational-science,1,1
+52,/news/2010-11-12-vacancies-centre-computational-science-0,16,9
+53,/news/2010-11-15-want-migrate-your-software-nescforge-we-can-help,20,9
+54,/news/2010-11-24-new-post-what-cloud-computing-got-right,10,6
+55,/news/2010-11-24-particle-physicists-hear-about-software-sustainability-institute,7,4
+56,/news/2010-11-29-new-post-changing-software-nightmare-tracking-scientific-data,7,4
+57,/news/2010-11-30-funding-extension-ngs,4,2
+58,/our-partners,4,3
+59,/resources,46,33
+60,/resources/approaches-software-sustainability,41,37
+61,/resources/guides,296,144
+62,/resources/guides/adopting-open-source-licence,10,10
+63,/resources/guides/choosing-repository-your-software-project,51,40
+64,/resources/guides/creating-and-managing-sourceforge-projects,48,38
+65,/resources/guides/developing-maintainable-software,40,33
+66,/resources/guides/migrating-project-resources,5,3
+67,/resources/guides/migrating-project-resources-what-remember,26,18
+68,/resources/guides/recruiting-champions-your-project,18,14
+69,/resources/guides/recruiting-student-developers,17,15
+70,/resources/guides/retrieving-project-resources-nescforge,69,37
+71,/resources/guides/software-development-general-best-practice,45,28
+72,/resources/guides/supporting-open-source-software,16,14
+73,/resources/guides/testing-your-software,12,10
+74,/resources/more-information-about-sustainability,27,20
+75,/resources/software-and-research,20,16
+76,/retrieving-project-resources-nescforge,4,1
+77,/search/node/manageable projects,1,1
+78,/search/node/neil,1,1
+79,/search/node/open source,3,1
+80,/search/node/resilient,1,1
+81,/search/node/resilient systems,2,1
+82,/search/node/scalable,1,1
+83,/snags,6,3
+84,/test-page-matt,4,4
+85,/test-page-matt-0,5,5
+86,/user,36,18
+87,/user/14,1,1
+88,/user/password,4,2
+89,/what do we do/ahmworkshop,2,1
+90,/what do we do/sustaining-software,45,33
+91,/what-do-we-do,91,66
+92,/who do we work/culham-centre-fusion-energy,10,9
+93,/who do we work/dmacrys,10,9
+94,/who do we work/ecias,15,14
+95,/who do we work/geotod-ii,23,16
+96,/who do we work/journaltocs,5,5
+97,/who do we work/sfc-brain-imaging-research-centre,13,11
+98,/who-do-we-work,21,17
+99,/writing-readable-source-code,5,1

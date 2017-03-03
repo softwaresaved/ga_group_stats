@@ -1,0 +1,101 @@
+,ga:pagepath,ga:pageviews,ga:uniquepageviews
+0,/,520,284
+1,/403.html?page=/snags&from=,2,1
+2,/403.html?page=/snags&from=http://software.ac.uk/admin/content/node,1,1
+3,/404.html?page=/asksteve.&from=,1,1
+4,/404.html?page=/attach/CurationAndPreservation.pdf&from=,1,1
+5,/404.html?page=/attach/CurationAndPreservation.pdf&from=http://softwarepreservation.jiscinvolve.org/wp/,1,1
+6,/404.html?page=/attach/HelpMyDeveloperIsRunningAway.pdf&from=,1,1
+7,/404.html?page=/attach/HelpMyDeveloperIsRunningAway.pdf&from=http://www.software.ac.uk/resources/preserving-software-resources,4,1
+8,/404.html?page=/attach/StartingCommunity.pdf&from=http://www.software.ac.uk/resources/preserving-software-resources,3,1
+9,/404.html?page=/attach/YouveInheritedSomeCode&from=http://www.software.ac.uk/resources/preserving-software-resources,3,1
+10,/404.html?page=/blog/login&from=,1,1
+11,/404.html?page=/CW11&from=,3,3
+12,/404.html?page=/CW11&from=http://www.nesc.ac.uk/esi/events/1169/,1,1
+13,/404.html?page=/guides//writing-readable-source-code&from=,2,1
+14,/404.html?page=/news/user&from=,1,1
+15,/404.html?page=/rlogin&from=,1,1
+16,/404.html?page=/trac&from=,1,1
+17,/404.html?page=/users&from=,1,1
+18,/404.html?page=/what do we do/sustaining-software&from=,2,1
+19,/404.html?page=/what do we do/sustaining-software&from=http://softwarepreservation.jiscinvolve.org/wp/,1,1
+20,/404.html?page=/writing-readable-source-code&from=http://software.ac.uk/admin,1,1
+21,/404.html?page=/writing-readable-source-code&from=http://software.ac.uk/resources/guides,1,1
+22,/404.html?page=/writing-readable-source-code&from=http://trac.software.ac.uk/ssi/wiki/DevServicesResources,3,1
+23,/404.html?page=/writing-readable-source-code&from=http://www.software.ac.uk/resources/guides,1,1
+24,/about,33,27
+25,/about/cite-us,3,2
+26,/about/contact,13,10
+27,/about/media,3,2
+28,/about/our-partners,9,8
+29,/about/people,46,38
+30,/banner-134,4,1
+31,/blog,32,15
+32,/blog/,3,1
+33,/blog/2010-10-14-computational-science-eliminating-errors,1,1
+34,/blog/2010-11-24-what-cloud-computing-got-right,17,16
+35,/blog/2010-11-26-changing-software-nightmare-tracking-scientific-data,18,16
+36,/blog/2010-11-26-life-after-nescforge-surviving-repository-closure,3,3
+37,/blog/2010-11-29-geotod-meet-datagovuk-and-ordnance-survey,5,4
+38,/blog/2010-12-16-experiences-paraview-and-python,16,10
+39,/blog/2010-12-21-geotod-ii-linked-data-demonstrator-live,2,1
+40,/blog/geotod-ii-linked-data-demonstrator-live,3,3
+41,/cw11,3,2
+42,/events,18,12
+43,/events/2010-02-16-dev8d,5,4
+44,/events/2010-09-13-uk-e-science-all-hands-meeting-2010,3,3
+45,/events/2010-11-15-competing-globally-regional-world,1,1
+46,/events/2010-11-23-ngs-innovation-forum-2010,2,1
+47,/events/2010-11-23-one-day-workshop-paper-based-techniques,3,3
+48,/home,1,1
+49,/login,17,13
+50,/login/,2,2
+51,/news,15,9
+52,/news?page=1,1,1
+53,/news/2010-09-13-how-set-and-run-data-service-scholarships-available,2,1
+54,/news/2010-11-03-biosemantics-and-bioinformatics-vacancies-leiden-university-medical-centre-netherlan,5,5
+55,/news/2010-11-12-vacancies-centre-computational-science,1,1
+56,/news/2010-11-15-want-migrate-your-software-nescforge-we-can-help,2,2
+57,/news/2010-11-24-new-post-what-cloud-computing-got-right,2,2
+58,/news/2010-11-29-new-post-changing-software-nightmare-tracking-scientific-data,7,5
+59,/news/2010-11-30-funding-extension-ngs,7,6
+60,/news/2010-12-02-vacancy-computing-officer-semantic-web-research-data-management-oxford,16,11
+61,/news/2010-12-16-got-question-about-software-ask-steve,18,7
+62,/resources,26,22
+63,/resources/approaches-software-sustainability,18,14
+64,/resources/guides,92,48
+65,/resources/guides/adopting-open-source-licence,2,2
+66,/resources/guides/choosing-project-and-product-names,4,1
+67,/resources/guides/choosing-repository-your-software-project,35,25
+68,/resources/guides/creating-and-managing-sourceforge-projects,41,38
+69,/resources/guides/developing-maintainable-software,16,12
+70,/resources/guides/migrating-project-resources-what-remember,3,2
+71,/resources/guides/recruiting-champions-your-project,4,4
+72,/resources/guides/recruiting-student-developers,1,1
+73,/resources/guides/retrieving-project-resources-nescforge,25,21
+74,/resources/guides/software-development-general-best-practice,10,10
+75,/resources/guides/testing-your-software,4,4
+76,/resources/guides/writing-readable-source-code,40,16
+77,/resources/more-information-about-sustainability,10,6
+78,/resources/preserving-software-resources,68,21
+79,/resources/software-and-research,9,7
+80,"/search?q=cache:6zOSZ6NCz8QJ:software.ac.uk/resources/guides/creating-and-managing-sourceforge-projects+sftp://username,myproject@web.sourceforge.net/home/groups/m/my/myproject/htdocs/wiki&cd=4&hl=ru&ct=clnk",1,1
+81,/search?q=cache:LZ3xVuPDsTkJ:www.software.ac.uk/who do we work/culham-centre-fusion-energy+culham+nuclear+safety&cd=5&hl=en&ct=clnk&gl=uk,4,1
+82,/search/node/curtis,1,1
+83,/search/node/steve,1,1
+84,/snags,5,5
+85,/translate_c?hl=ar&sl=en&u=http://www.software.ac.uk/&prev=/search?q=sustainability+software&hl=ar&rurl=translate.google.ae&usg=ALkJrhiGGICgAOR47n56IFNJNTCH6sAb3Q,1,1
+86,/user,45,28
+87,/user/11,1,1
+88,/what do we do/cw11,27,20
+89,/what do we do/preserving-software,5,4
+90,/what do we do/sustaining-software,11,8
+91,/what-do-we-do,39,24
+92,/who do we work/culham-centre-fusion-energy,4,3
+93,/who do we work/dmacrys,8,7
+94,/who do we work/ecias,8,7
+95,/who do we work/geotod-ii,28,15
+96,/who do we work/journaltocs,5,5
+97,/who do we work/sfc-brain-imaging-research-centre,19,14
+98,/who-do-we-work,6,5
+99,/writing-readable-source-code,5,4

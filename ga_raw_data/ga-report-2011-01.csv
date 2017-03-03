@@ -1,0 +1,152 @@
+,ga:pagepath,ga:pageviews,ga:uniquepageviews
+0,/,791,434
+1,/?node=admin/,1,1
+2,/?node=login,2,1
+3,/?q=about,1,1
+4,/?q=news,3,1
+5,/?q=news/2010-11-12-vacancies-centre-computational-science,1,1
+6,/?q=news/2010-11-24-new-post-what-cloud-computing-got-right,2,1
+7,/?q=what do we do/cw11,2,1
+8,/403.html?page=/blog/2011-01-17-continuous-integration-gets-new-butler&from=,2,2
+9,/403.html?page=/snags&from=,2,2
+10,/403.html?page=/snags&from=http://software.ac.uk/admin/content/node,2,1
+11,/404.html?page=/CW11 Agenda&from=,1,1
+12,/404.html?page=/CW11&from=,10,9
+13,/404.html?page=/CW11&from=http://www.lwec.org.uk/news-archive/2011/24012011-building-new-research-collaborations-workshop,2,1
+14,/404.html?page=/CW11&from=http://www.nesc.ac.uk/esi/events/1169/,8,8
+15,/404.html?page=/CW11Agenda&from=,1,1
+16,/404.html?page=/download.php&from=,1,1
+17,/404.html?page=/ff&from=,1,1
+18,/404.html?page=/header-logo&from=,1,1
+19,/404.html?page=/headerlogo&from=,2,1
+20,/404.html?page=/modules/ckeditor/ckeditor/ckeditor.config.js&from=,1,1
+21,/404.html?page=/php-info&from=,2,1
+22,/404.html?page=/PoissonSuperfish/PoissonSuperfish_7.18.exe&from=,1,1
+23,/404.html?page=/sophos&from=,1,1
+24,/404.html?page=/trac&from=,3,3
+25,/404.html?page=/uuuser&from=,1,1
+26,/404.html?page=/what do we do/&from=,1,1
+27,/404.html?page=/what do we do/cw11&from=,7,5
+28,/404.html?page=/what do we do/cw11&from=http://www.ngs.ac.uk/,5,3
+29,/404.html?page=/what do we do/sustaining-software&from=http://www.keep-project.eu/ezpub2/index.php?/eng/About-KEEP/News/Software-preservation-workshop,2,1
+30,/404.html?page=/what do we do/sustaining-software&from=http://www.open.ac.uk/wikis/iet/IET_July_2010,1,1
+31,/404.html?page=/what do we do/sustaining-software&from=http://www.software.ac.uk/what-do-we-do,5,4
+32,/404.html?page=/what-do-we-do/cw11&from=,1,1
+33,/about,49,40
+34,/about/cite-us,3,2
+35,/about/contact,27,19
+36,/about/media,3,3
+37,/about/our-partners,15,14
+38,/about/people,63,53
+39,/banner-134,1,1
+40,/banner-145,2,2
+41,/banner-51,2,2
+42,/banner-54,1,1
+43,/banner-55,2,1
+44,/banner-56,1,1
+45,/banner-57,1,1
+46,/blog,54,37
+47,/blog?page=1,4,2
+48,/blog/,2,2
+49,/blog/2010-09-07-keep-date-software-sustainability-institute,1,1
+50,/blog/2010-09-14-oyez-oyez-oyez-plenty-shout-about-ahm-2010,1,1
+51,/blog/2010-11-24-what-cloud-computing-got-right,6,5
+52,/blog/2010-11-26-changing-software-nightmare-tracking-scientific-data,6,6
+53,/blog/2010-12-16-experiences-paraview-and-python,14,14
+54,/blog/2010-12-21-geotod-ii-linked-data-demonstrator-live,12,11
+55,/blog/2011-01-11-increasing-our-understanding-location-geotod-ii,13,9
+56,/blog/2011-01-11-organising-successful-event-cw11,53,45
+57,/blog/2011-01-17-continuous-integration-gets-new-butler,31,16
+58,/blog/2011-01-18-thinking-about-migrating-different-repository,47,41
+59,/blog/9,1,1
+60,/breakouts,1,1
+61,/devcsi-support-developers,31,17
+62,/events,23,17
+63,/events/2010-02-16-dev8d,3,3
+64,/events/2010-11-23-ngs-innovation-forum-2010,1,1
+65,/events/2010-11-23-one-day-workshop-paper-based-techniques,2,2
+66,/events/2010-11-26-e-science-institute-call-mini-themes,4,4
+67,/events/2011-03-03-collaborations-workshop,23,20
+68,/events/2011-09-26-e-science-all-hands-meeting-2011,30,23
+69,/events/e-science-all-hands-meeting-2011,1,1
+70,/home/,1,1
+71,/home/cw11,438,334
+72,/home/CW11,32,24
+73,/home/cw11/cw11-agenda,9,2
+74,/home/cw11/devcsi-support-developers,2,1
+75,/home/cw11/why-does-it-work,2,2
+76,/how-does-it-work,4,2
+77,/index.php?node=admin,1,1
+78,/index.php?node=login,1,1
+79,/index.php?q=login,8,1
+80,/index.php?q=user/password,2,1
+81,/login,19,12
+82,/more-about-us,1,1
+83,/news,49,27
+84,/news/,2,1
+85,/news/2010-06-01-future-software,2,2
+86,/news/2010-10-14-riding-wave-report,1,1
+87,/news/2010-11-03-biosemantics-and-bioinformatics-vacancies-leiden-university-medical-centre-netherlan,2,2
+88,/news/2010-11-12-vacancies-centre-computational-science,2,2
+89,/news/2010-11-15-want-migrate-your-software-nescforge-we-can-help,1,1
+90,/news/2010-11-24-particle-physicists-hear-about-software-sustainability-institute,1,1
+91,/news/2010-11-29-new-post-changing-software-nightmare-tracking-scientific-data,6,5
+92,/news/2010-11-30-funding-extension-ngs,2,2
+93,/news/2010-12-02-vacancy-computing-officer-semantic-web-research-data-management-oxford,6,6
+94,/news/2010-12-16-got-question-about-software-ask-steve,16,13
+95,/news/2011-01-11-building-new-research-collaborations-collaborations-workshop,23,19
+96,/news/2011-01-11-new-post-organising-successful-event-cw11,16,11
+97,/news/2011-01-18-new-post-thinking-about-migrating-different-repository,12,9
+98,/news/2011-01-20-last-chance-take-part-ngs-user-survey,5,2
+99,/news/2011-01-21-new-guide-choosing-project-and-product-names,12,8
+100,/news/2011-01-21-software-sustainability-featured-international-science-grid-week,18,7
+101,/news/2011-01-21-uk-e-science-etf-network-call-proposals-commissioned-technical-materials,7,4
+102,/news/2011-01-25-c-or-not-c-asksteve-tackles-big-question,20,14
+103,/news/2011-01-26-any-developers-fancy-free-access-cw11-and-help-expenses-too,13,6
+104,/resources,21,16
+105,/resources/approaches-software-sustainability,38,33
+106,/resources/guides,60,41
+107,/resources/guides/adopting-open-source-licence,11,6
+108,/resources/guides/choosing-project-and-product-names,43,33
+109,/resources/guides/choosing-repository-your-software-project,24,16
+110,/resources/guides/creating-and-managing-sourceforge-projects,35,30
+111,/resources/guides/developing-maintainable-software,23,19
+112,/resources/guides/recruiting-champions-your-project,5,5
+113,/resources/guides/recruiting-student-developers,9,9
+114,/resources/guides/retrieving-project-resources-nescforge,4,4
+115,/resources/guides/software-development-general-best-practice,17,15
+116,/resources/guides/supporting-open-source-software,1,1
+117,/resources/guides/testing-your-software,4,4
+118,/resources/guides/writing-readable-source-code,10,10
+119,/resources/more-information-about-sustainability,28,14
+120,/resources/preserving-software-resources,73,44
+121,/resources/software-and-research,13,13
+122,"/search?q=cache:HCfyboGsQnoJ:software.ac.uk/resources/guides/writing-readable-source-code+""be+more+easily""""understand""&cd=9&hl=vi&ct=clnk&gl=vn",1,1
+123,/search?q=cache:wOZh4LaptOMJ:www.software.ac.uk/events/2011-09-26-e-science-all-hands-meeting-2011+e+science+all+hands+2011&cd=3&hl=en&ct=clnk&client=firefox-a,2,2
+124,/search/node/blackford,1,1
+125,/search/node/defintion,1,1
+126,/search/node/digital curation,1,1
+127,/search/node/digital curator,1,1
+128,/search/node/efficiency,1,1
+129,/search/node/grid,1,1
+130,/search/node/moped,1,1
+131,/search/node/susan hayward,1,1
+132,/search/node/sustainability links,1,1
+133,/snags,23,14
+134,/test,4,2
+135,/test-page,8,2
+136,/test-page-matt,2,2
+137,/user,67,39
+138,/user/1,2,1
+139,/what do we do/ahmworkshop,4,1
+140,/what do we do/cw11,8,8
+141,/what do we do/preserving-software,20,19
+142,/what-do-we-do,100,70
+143,/what-do-we-do/,1,1
+144,/who do we work/culham-centre-fusion-energy,16,11
+145,/who do we work/dmacrys,9,8
+146,/who do we work/ecias,20,14
+147,/who do we work/geotod-ii,31,22
+148,/who do we work/journaltocs,5,4
+149,/who do we work/sfc-brain-imaging-research-centre,12,12
+150,/who-do-we-work,16,14
