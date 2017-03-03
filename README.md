@@ -1,8 +1,8 @@
 # Google Analytics (GA) website stats for a group of URLs
 
 Given a set of URLs in a text file, a list of GA metrics to capture,
-and a start and end date, provides the following reports for the given
-time period:
+and a start and end date, provides the following website statistic
+reports for the given time period for those URLs as a group:
 
 * An overall, sorted summary of summed metrics per month
 * An overall, sorted summary of pageviews per page, including a list of
