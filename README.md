@@ -16,7 +16,7 @@ reports can only be generated within (or equal to) this current time
 period unless further monthly data sets are downloaded.
 
 
-## Files
+## How it's put together
 
 ### Generating reports
 
