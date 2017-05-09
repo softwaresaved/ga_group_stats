@@ -40,7 +40,7 @@ entire website, used by `generate_group_stats.py`
 ### Requirements
 
 * Python 3 (tested on Python 3.6.0)
-* Python libraries (installable via `pip install -r requirements.txt` - 
+* Python libraries (installable via `pip install -r requirements.txt` -
 see `requirements.txt` for specific details of versions used during
 development and testing, others may work):
     * pandas
@@ -53,18 +53,18 @@ Edit the `generate_config.py` file and edit the following parameters:
 
 * `STARTDATE`, `ENDDATE` - The start and end dates for the period for
 which you wish to generate reports, in `YYYY-MM-DD` format. The defaults
-are for the SSI2 project timeframe, from June 1 2015 to February 28 2017.
-* `PAGE_METRICS` - The metrics you wish to capture. The ones supported at
-the moment are overall page views `ga:pageviews` and unique page views
-`ga:uniquepageviews`, which are set as defaults. You can find others
-at [https://developers.google.com/analytics/devguides/reporting/core/dimsmets](https://developers.google.com/analytics/devguides/reporting/core/dimsmets),
+are for the SSI2 project timeframe, from June 1 2015 to February 28 2017
+* `PAGE_METRICS` - The metrics you wish to capture in reports as CSV columns.
+The ones supported at the moment are overall page views `ga:pageviews` and
+unique page views `ga:uniquepageviews`, which are set as defaults. You can
+find others at [https://developers.google.com/analytics/devguides/reporting/core/dimsmets](https://developers.google.com/analytics/devguides/reporting/core/dimsmets),
 so if you'd like others to be added raise an [issue](https://github.com/softwaresaved/ga_group_stats/issues)
 on this repository. Note that generated reports will be sorted by the
 first metric specified
 * `URL_LIST_FILE` - The file of URLs you wish to generate reports
 for within the time period, held in the `url_lists/` directory,
 with a single URL per line. The default file given is for a small
-test set.
+test set
 
 
 ### How searching works, and specifying the URLs to check
@@ -85,10 +85,11 @@ to cater for 99% of cases. These are:
 - Those that have a date prefix, e.g. `http://software.ac.uk/blog/2013-10-31-whats-wrong-computer-scientists`
 - Those that have a querystring suffix, e.g. `http://software.ac.uk/blog/2013-10-31-whats-wrong-computer-scientists?mpw=`
 - Those without a protocol and domain name prefix, e.g. `/blog/whats-wrong-computer-scientists`
+- Those with an alias located elsewhere that have the same page name, e.g. `/whats-wrong-computer-scientists`
 - Combinations of these
 
 Essentially, the URLs which are supplied are 'shortened' to their
-core path and page 'meaning', e.g. `blog/whats-wrong-computer-scientists`,
+core path and page 'meaning', e.g. to `whats-wrong-computer-scientists`,
 to be used for searching. This helps to ensure that such variants of this
 core page can be found, so that stats data for a given page isn't missed.
 Any duplicate 'core pages' in the URL list file are ignored - since you
