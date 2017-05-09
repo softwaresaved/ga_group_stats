@@ -16,7 +16,11 @@ PAGE_METRICS = ['ga:pageviews', 'ga:uniquepageviews']
 GA_OUTPUT_DIR = 'ga_raw_data'
 
 # Our URL list file to process
-URL_LIST_FILE = 'url_lists/test_set.txt'
+#URL_LIST_FILE = 'url_lists/training_guidesandtools.txt'
+URL_LIST_FILE = 'url_lists/community.txt'
+#URL_LIST_FILE = 'url_lists/policy_analysis.txt'
+#URL_LIST_FILE = 'url_lists/policy_rse.txt'
+#URL_LIST_FILE = 'url_lists/rsg_website.txt'
 
 # Where to put output reports
 REP_OUTPUT_DIR = 'reports'

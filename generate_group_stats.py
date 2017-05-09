@@ -27,6 +27,7 @@ VIEW_ID = '31084866'  # The SSI software.ac.uk view id
 # Regexps for matching optional page prefixes and query suffixes on pages
 URL_REGEXP_DATEOPTION = '(?:[0-9]{4}-[0-9]{2}-[0-9]{2}-){0,1}'
 URL_REGEXP_QUERYOPTION = '(?:\?.*){0,1}$'
+URL_REGEXP_PATHPREFIX = '^[^\?&]*/'
 
 # Set default logging (only set if none already defined)
 logfile = 'generate-' + datetime.now().strftime('%Y-%m-%d-%H-%M') + '.log'
@@ -37,37 +38,32 @@ log.setLevel(logging.INFO)
 
 
 def extract_core_url(url):
-  """Extract path and core page from URL, removing any date prefix and querystring.
+  """Extract core page from URL, removing any date prefix and querystring.
 
   :param url: str URL to process
-  :return: str pair of extracted path and core page name
+  :return: str pair of core page name
   """
   # Extract the path and page from the URL
   url_path = urlparse(url).path
   path, page = os.path.split(url_path.strip())
 
-  # If our path is effectively empty (just '/'), make it an empty string
-  # otherwise matches on root pages won't work
-  path = '' if path == '/' else path
-
   # Remove any fixed date already prefixed to page name, to increase chances
   # we'll find any duplicate content (with perhaps other fixed date prefixes)
   core_page = re.sub('^' + URL_REGEXP_DATEOPTION, '', page)
 
-  return path, core_page
+  return core_page
 
 
-def build_regexp_url(path, core_page):
+def build_regexp_url(core_page):
     """Build regexp to search for pages with optional date prefix and querystring.
 
-    :param path: str path to include as prefix in regexp
     :param core_page: str the core page to search for
     :return: the built regular expression
     """
     # Our regular expression to find our page, with an optional date prefix in page
     # name and optional HTTP get query, so we can group stats for all aliases/copies
-    # of same actual content
-    url_regexp = '^' + path + '/' + URL_REGEXP_DATEOPTION + core_page + URL_REGEXP_QUERYOPTION
+    # of same actual content. Note we ignore the URL path prefix entirely
+    url_regexp = URL_REGEXP_PATHPREFIX + URL_REGEXP_DATEOPTION + core_page + URL_REGEXP_QUERYOPTION
     return url_regexp
 
 
@@ -83,8 +79,8 @@ def calculate_search_terms(url_file):
         if url[0] == '#':
             continue
 
-        path, core_page = extract_core_url(url)
-        core_pages[path+'/'+core_page] = build_regexp_url(path, core_page)
+        core_page = extract_core_url(url)
+        core_pages[core_page] = build_regexp_url(core_page)
     file.close()
 
     return core_pages
