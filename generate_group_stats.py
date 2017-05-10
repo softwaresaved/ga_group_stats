@@ -168,10 +168,18 @@ def main():
         monthly_df = pd.read_csv(os.path.join(GA_OUTPUT_DIR, csv_in_filename),
                                  index_col=0)
 
+        # Create a monthly reports subdirectory if it doesn't exist
+        monthly_output_dir = os.path.join(output_dir, "monthly_reports")
+        if not os.path.exists(monthly_output_dir):
+            log.info("Creating new monthly report subdirectory " + monthly_output_dir + "...")
+            os.makedirs(monthly_output_dir)
+        else:
+            log.info("Monthly reports will be generated in existing monthly report subdirectory " + monthly_output_dir + "...")
+
         log.info("Extracting monthly summary data for specified URLs")
         monthly_df = summarise_by_core_pages(search_terms, monthly_df)
         monthly_df = monthly_df.sort_values(by=PAGE_METRICS[0], ascending=False)
-        monthly_df.to_csv(os.path.join(output_dir, csv_out_filename), encoding='utf-8')
+        monthly_df.to_csv(os.path.join(monthly_output_dir, csv_out_filename), encoding='utf-8')
 
         log.info("Integrating monthly stat totals into summary dataframe")
         summary = monthly_df.sum(numeric_only=True)
