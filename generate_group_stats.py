@@ -122,12 +122,19 @@ def main():
     # blank entries, remove duplicates by converting to a set
     remove_page_duplicates = lambda x: ', '.join(set(filter(None, x.split(','))))
 
+    # The entire search date range and column data we want
+    startdate = datetime.strptime(STARTDATE, '%Y-%m-%d')
+    enddate = datetime.strptime(ENDDATE, '%Y-%m-%d')
+
+    # The suffix we add to our csv filenames
+    csv_report_suffix = '-' + startdate.strftime('%Y-%m') + '--' + enddate.strftime('%Y-%m')
+
     # Create directory path for where we'll put the reports, extracting the
     # filename from URL_LIST_FILE and disregarding any subdirectory or extension
     # Any reports that already exist will be overridden by any later versions
     _, out_full_filename = os.path.split(URL_LIST_FILE)
     out_filename, _ = os.path.splitext(out_full_filename)
-    output_dir = os.path.join(REP_OUTPUT_DIR, out_filename)
+    output_dir = os.path.join(REP_OUTPUT_DIR, out_filename + csv_report_suffix)
 
     # If our output directory doesn't exist, create it
     if not os.path.exists(output_dir):
@@ -135,10 +142,6 @@ def main():
         os.makedirs(output_dir)
     else:
         log.info("Reports will be generated in existing report directory " + output_dir + "...")
-
-    # The entire search date range and column data we want
-    startdate = datetime.strptime(STARTDATE, '%Y-%m-%d')
-    enddate = datetime.strptime(ENDDATE, '%Y-%m-%d')
 
     # To contain an overall summary, per-month
     summary_df = pd.DataFrame(columns=['Month']+PAGE_METRICS)
@@ -156,7 +159,7 @@ def main():
         report_enddate = report_startdate + relativedelta(months=1) - relativedelta(days=1)
         csv_in_filename = 'ga-report-' + report_startdate.strftime('%Y-%m') + '.csv'
         csv_out_filename = ('ga-report-' + os.path.basename(URL_LIST_FILE) + '-'
-                            + report_startdate.strftime('%Y-%m') + '.csv')
+                           + report_startdate.strftime('%Y-%m') + '.csv')
 
         if not os.path.exists(os.path.join(GA_OUTPUT_DIR, csv_in_filename)):
             log.error("Could not find GA raw data csv file " + csv_in_filename)
@@ -174,7 +177,8 @@ def main():
             log.info("Creating new monthly report subdirectory " + monthly_output_dir + "...")
             os.makedirs(monthly_output_dir)
         else:
-            log.info("Monthly reports will be generated in existing monthly report subdirectory " + monthly_output_dir + "...")
+            log.info("Monthly reports will be generated in existing monthly report subdirectory "
+                     + monthly_output_dir + "...")
 
         log.info("Extracting monthly summary data for specified URLs")
         monthly_df = summarise_by_core_pages(search_terms, monthly_df)
@@ -210,8 +214,7 @@ def main():
     reports = [['ga-summary-', summary_df], ['ga-complete-', complete_df]]
     for filename_prefix, df in reports:
         csv_filename = (filename_prefix + os.path.basename(URL_LIST_FILE)
-                        + '-' + startdate.strftime('%Y-%m')
-                        + '--' + enddate.strftime('%Y-%m') + '.csv')
+                        + csv_report_suffix + ".csv")
         log.info("Saving aggregate GA report " + csv_filename)
         df.to_csv(os.path.join(output_dir, csv_filename),
                   encoding='utf-8')
