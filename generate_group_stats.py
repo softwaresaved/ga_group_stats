@@ -118,9 +118,20 @@ def summarise_by_core_pages(search_terms, df):
 
 
 def main():
-    # Split string by comma into list, remove blank entries, remove duplicates
-    # by converting to a set
+    # Lambda convenience function to split string by comma into list, remove
+    # blank entries, remove duplicates by converting to a set
     remove_page_duplicates = lambda x: ', '.join(set(filter(None, x.split(','))))
+
+    # Create directory path for where we'll put the reports, extracting the
+    # filename from URL_LIST_FILE and disregarding any subdirectory or extension
+    # Any reports that already exist will be overridden by any later versions
+    _, out_full_filename = os.path.split(URL_LIST_FILE)
+    out_filename, _ = os.path.splitext(out_full_filename)
+    output_dir = os.path.join(REP_OUTPUT_DIR, out_filename)
+
+    # If our output directory doesn't exist, create it
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
     # The entire search date range and column data we want
     startdate = datetime.strptime(STARTDATE, '%Y-%m-%d')
@@ -157,7 +168,7 @@ def main():
         log.info("Extracting monthly summary data for specified URLs")
         monthly_df = summarise_by_core_pages(search_terms, monthly_df)
         monthly_df = monthly_df.sort_values(by=PAGE_METRICS[0], ascending=False)
-        monthly_df.to_csv(os.path.join(REP_OUTPUT_DIR, csv_out_filename), encoding='utf-8')
+        monthly_df.to_csv(os.path.join(output_dir, csv_out_filename), encoding='utf-8')
 
         log.info("Integrating monthly stat totals into summary dataframe")
         summary = monthly_df.sum(numeric_only=True)
@@ -191,7 +202,7 @@ def main():
                         + '-' + startdate.strftime('%Y-%m')
                         + '--' + enddate.strftime('%Y-%m') + '.csv')
         log.info("Saving aggregate GA report " + csv_filename)
-        df.to_csv(os.path.join(REP_OUTPUT_DIR, csv_filename),
+        df.to_csv(os.path.join(output_dir, csv_filename),
                   encoding='utf-8')
 if __name__ == '__main__':
     main()
