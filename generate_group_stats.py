@@ -30,7 +30,7 @@ URL_REGEXP_QUERYOPTION = '(?:\?.*){0,1}$'
 URL_REGEXP_PATHPREFIX = '^[^\?&]*/'
 
 # Set default logging (only set if none already defined)
-logfile = 'generate-' + datetime.now().strftime('%Y-%m-%d-%H-%M') + '.log'
+logfile = 'generate-' + datetime.now().strftime('%Y-%m-%d') + '.log'
 logging.basicConfig(filename=os.path.join(LOGFILE_DIR, logfile),
                     format='%(asctime)s - %(levelname)s %(funcName)s() - %(message)s')
 log = logging.getLogger()
@@ -131,7 +131,10 @@ def main():
 
     # If our output directory doesn't exist, create it
     if not os.path.exists(output_dir):
+        log.info("Creating new report directory " + output_dir + "...")
         os.makedirs(output_dir)
+    else:
+        log.info("Reports will be generated in existing report directory " + output_dir + "...")
 
     # The entire search date range and column data we want
     startdate = datetime.strptime(STARTDATE, '%Y-%m-%d')

@@ -27,7 +27,7 @@ DISCOVERY_URI = ('https://analyticsreporting.googleapis.com/$discovery/rest')
 VIEW_ID = '31084866'  # The SSI software.ac.uk view id
 
 # Set default logging (only set if none already defined)
-logfile = 'download-' + datetime.now().strftime('%Y-%m-%d-%H-%M') + '.log'
+logfile = 'download-' + datetime.now().strftime('%Y-%m-%d') + '.log'
 logging.basicConfig(filename=os.path.join(LOGFILE_DIR, logfile),
                     format='%(asctime)s - %(levelname)s %(funcName)s() - %(message)s')
 log = logging.getLogger()
