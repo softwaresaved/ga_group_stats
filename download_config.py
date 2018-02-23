@@ -8,7 +8,7 @@ LOGFILE_DIR = 'logs'
 
 # Start and end dates you want for stats
 STARTDATE = '2015-06-01'
-ENDDATE = '2017-02-28'
+ENDDATE = '2018-02-22'
 
 # The overall Google Analytics metrics you want
 # You can find the full list at
