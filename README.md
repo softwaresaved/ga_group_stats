@@ -11,11 +11,11 @@ same page and should be counted as such
 * Individual monthly reports of metrics (and page variants) per page
 
 It uses a pre-downloaded set of monthly GA data for the entire website,
-which currently exists for the period April 2010 - February 2017. Thus,
+which currently exists for the period April 2010 - February 2020. Thus,
 reports can only be generated within (or equal to) this current time
 period unless further monthly data sets are downloaded. The default
 time period for the script is from the start of SSI2 project to February
-2017.
+2020.
 
 
 ## Generating reports
@@ -171,8 +171,22 @@ for more details on generating a GA JSON credential.
 
 ### Configuration
 
-To be completed.
+Edit the `generate_config.py` file and edit the following parameters:
+
+* `CLIENT_SECRETS_PATH` - The path to the GA JSON credential.
+* `STARTDATE`, `ENDDATE` - The start and end dates for the period for
+which you wish to download GA statistics, in `YYYY-MM-DD` format. The defaults
+are for the entire lifecycle of SSI.
+* `PAGE_METRICS` - The metrics you wish to capture in reports as CSV columns.
+The ones supported at the moment are overall page views `ga:pageviews` and
+unique page views `ga:uniquepageviews`, which are set as defaults. You can
+find others at [https://developers.google.com/analytics/devguides/reporting/core/dimsmets](https://developers.google.com/analytics/devguides/reporting/core/dimsmets),
+so if you'd like others to be added raise an [issue](https://github.com/softwaresaved/ga_group_stats/issues)
+on this repository. Only the metrics captured during this process can be used
+in report generation (see above).
 
 ### Running the download tool
 
-To be completed.
+Simply type `python download_all_monthly.py` at the command line. A
+summary of progress for processing and generating reports per month,
+and overall, will be displayed.
