@@ -143,8 +143,9 @@ def main():
     else:
         log.info("Reports will be generated in existing report directory " + output_dir + "...")
 
-    # To contain an overall summary, per-month
-    summary_df = pd.DataFrame(columns=['Month']+PAGE_METRICS)
+    # To contain overall summaries, per-month and per-year
+    mo_summary_df = pd.DataFrame(columns=['Year', 'Month']+PAGE_METRICS)
+    yr_summary_df = pd.DataFrame(columns=['Year']+PAGE_METRICS)
 
     # To contain an overall summary, per core page
     complete_df = pd.DataFrame(columns=['ga:pagepath']+['Pages']+PAGE_METRICS)
@@ -183,18 +184,23 @@ def main():
         log.info("Extracting monthly summary data for specified URLs")
         monthly_df = summarise_by_core_pages(search_terms, monthly_df)
         monthly_df = monthly_df.sort_values(by=PAGE_METRICS[0], ascending=False)
+        monthly_df[PAGE_METRICS] = monthly_df[PAGE_METRICS].astype(int)
         monthly_df.to_csv(os.path.join(monthly_output_dir, csv_out_filename), encoding='utf-8')
 
         log.info("Integrating monthly stat totals into summary dataframe")
         summary = monthly_df.sum(numeric_only=True)
-        summary.set_value('Month', report_startdate.strftime('%Y-%m'))
-        summary_df = summary_df.append(summary, ignore_index=True)
+        summary.set_value('Year', report_startdate.strftime('%Y'))
+        summary.set_value('Month', report_startdate.strftime('%m'))
+        mo_summary_df = mo_summary_df.append(summary, ignore_index=True)
 
         log.info("Integrating page groupings and stats into summary dataframe")
         complete_df = complete_df.append(monthly_df, ignore_index=True)
 
         # Calculate our next monthly time period
         report_startdate = report_startdate + relativedelta(months=1)
+
+    # Generate a yearly summary
+    yr_summary_df = mo_summary_df.groupby(['Year'], as_index=False).sum()
 
     # For our complete pages report, create aggregate views of:
     #  - all common core pages, summing all numeric columns (e.g. metrics)
@@ -211,12 +217,15 @@ def main():
     # Save our summary report dataframes as CSV
     log.info("Saving summary reports...")
     print("Saving summary reports...")
-    reports = [['ga-summary-', summary_df], ['ga-complete-', complete_df]]
+    reports = [['ga-summary-monthly-', mo_summary_df], ['ga-summary-yearly-', yr_summary_df], ['ga-complete-', complete_df]]
     for filename_prefix, df in reports:
         csv_filename = (filename_prefix + os.path.basename(URL_LIST_FILE)
                         + csv_report_suffix + ".csv")
+        df[PAGE_METRICS] = df[PAGE_METRICS].astype(int)
         log.info("Saving aggregate GA report " + csv_filename)
         df.to_csv(os.path.join(output_dir, csv_filename),
                   encoding='utf-8', index=False)
+
+
 if __name__ == '__main__':
     main()
