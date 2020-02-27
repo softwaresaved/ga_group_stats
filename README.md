@@ -119,8 +119,10 @@ your `URL_LIST_FILE` which holds the generated reports:
 number of Comma-Separated Value (CSV) reports with filenames matching
 `ga-report-<url-file>-<year-month>.csv`, each containing summaries across
 all core pages for each given metric
-* A `ga-summary-<url-file>-<time-period>.csv` CSV report which contains
+* A `ga-summary-monthly-<url-file>-<time-period>.csv` CSV report which contains
 a monthly breakdown over the time period for the given metrics
+* A `ga-summary-yearly-<url-file>-<time-period>.csv` CSV report which contains
+a yearly breakdown over the time period for the given metrics
 * A `ga-complete-<url-file>-<time-period>.csv` CSV report which contains
 an overall breakdown, per core page, for the given metrics
 
