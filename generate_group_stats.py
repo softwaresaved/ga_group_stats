@@ -217,6 +217,6 @@ def main():
                         + csv_report_suffix + ".csv")
         log.info("Saving aggregate GA report " + csv_filename)
         df.to_csv(os.path.join(output_dir, csv_filename),
-                  encoding='utf-8')
+                  encoding='utf-8', index=False)
 if __name__ == '__main__':
     main()
