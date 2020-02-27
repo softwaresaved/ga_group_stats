@@ -80,7 +80,11 @@ def calculate_search_terms(url_file):
             continue
 
         core_page = extract_core_url(url)
-        core_pages[core_page] = build_regexp_url(core_page)
+
+        # Only register it as a core page if it isn't an empty string
+        if core_page:
+            core_pages[core_page] = build_regexp_url(core_page)
+
     file.close()
 
     return core_pages
