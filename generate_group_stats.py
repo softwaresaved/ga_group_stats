@@ -109,8 +109,8 @@ def summarise_by_core_pages(search_terms, df):
     # Create summary totals of metrics for found pages, adding
     # to our summary DataFrame
     sum_metrics = df[idx][PAGE_METRICS].apply(pd.to_numeric).sum(axis=0, numeric_only=True)
-    sum_metrics.set_value('Pages', df[idx]['ga:pagepath'].str.cat(sep=','))
-    sum_metrics.set_value('ga:pagepath', core_page)
+    sum_metrics.at['Pages'] = df[idx]['ga:pagepath'].str.cat(sep=',')
+    sum_metrics.at['ga:pagepath'] = core_page
     new_df = new_df.append(sum_metrics, ignore_index=True)
     log.debug("Metrics: \n" + str(sum_metrics))
 
@@ -193,8 +193,8 @@ def main():
 
         log.info("Integrating monthly stat totals into summary dataframe")
         summary = monthly_df.sum(numeric_only=True)
-        summary.set_value('Year', report_startdate.strftime('%Y'))
-        summary.set_value('Month', report_startdate.strftime('%m'))
+        summary.at['Year'] = report_startdate.strftime('%Y')
+        summary.at['Month'] = report_startdate.strftime('%m')
         mo_summary_df = mo_summary_df.append(summary, ignore_index=True)
 
         log.info("Integrating page groupings and stats into summary dataframe")
@@ -205,6 +205,7 @@ def main():
 
     # Generate a yearly summary
     yr_summary_df = mo_summary_df.groupby(['Year'], as_index=False).sum()
+    yr_summary_df = yr_summary_df.drop(columns=['Month'])
 
     # For our complete pages report, create aggregate views of:
     #  - all common core pages, summing all numeric columns (e.g. metrics)
@@ -212,7 +213,8 @@ def main():
     # Then merge them on ga:pagepath
     c1 = complete_df.groupby('ga:pagepath', as_index=False).sum()
     c2 = complete_df.groupby('ga:pagepath').agg(lambda x: ','.join(set(x))).reset_index()
-    complete_df = pd.merge(c1, c2, on='ga:pagepath', how='outer')
+    complete_df = pd.merge(c1, c2, on=['ga:pagepath', 'Pages'], how='outer')
+
     # Remove any duplicate full page entries in each Pages row
     complete_df['Pages'] = complete_df['Pages'].map(remove_page_duplicates)
     # Finally, sort by first metric in PAGE_METRICS
@@ -225,7 +227,7 @@ def main():
     for filename_prefix, df in reports:
         csv_filename = (filename_prefix + os.path.basename(URL_LIST_FILE)
                         + csv_report_suffix + ".csv")
-        df[PAGE_METRICS] = df[PAGE_METRICS].astype(int)
+        df[PAGE_METRICS] = df[PAGE_METRICS].fillna(0).astype(int)
         log.info("Saving aggregate GA report " + csv_filename)
         df.to_csv(os.path.join(output_dir, csv_filename),
                   encoding='utf-8', index=False)

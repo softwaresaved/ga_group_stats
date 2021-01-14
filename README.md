@@ -139,7 +139,7 @@ Given the data has already been downloaded and stored in this repository,
 there is no need to use this capability unless you wish to expand the set
 of overall monthly stats it can use:
 
-* [auth_secret/](auth_secret) - Contains `client-secrets.json` file to hold credential
+* [auth_secret/](auth_secret) - Contains `client_secrets.json` file to hold credential
 to authenticate with GA. See [https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py](https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py)
 for details on how to obtain a usable credential based on your Google
 account, using the Google Developers Console. Your Google account will
@@ -191,4 +191,7 @@ in report generation (see above).
 
 Simply type `python download_all_monthly.py` at the command line. A
 summary of progress for processing and generating reports per month,
-and overall, will be displayed.
+and overall, will be displayed. If this is the first time running this
+command, you will be redirected to a Google login page on your browser
+to authenticate with the service. When this happens, use the account
+from which you generated the `client_secrets.json` credential file.
