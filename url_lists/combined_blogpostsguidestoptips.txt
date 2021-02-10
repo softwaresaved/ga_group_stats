@@ -1,4 +1,5 @@
 https://www.software.ac.uk/REF2021guidance
+https://www.software.ac.uk/best-practice-using-cloud-research
 https://www.software.ac.uk/blog/
 https://www.software.ac.uk/blog/2010-09-07-keep-date-software-sustainability-institute
 https://www.software.ac.uk/blog/2010-09-14-oyez-oyez-oyez-plenty-shout-about-ahm-2010
@@ -3162,6 +3163,7 @@ https://www.software.ac.uk/blog/2020-02-20-announcing-mini-workshop-and-demo-ses
 https://www.software.ac.uk/blog/2020-02-20-announcing-mini-workshop-and-demo-sessions-collaborations-workshop-2020?mc_cid=b1dcd8d858&mc_eid=e10eaeac63
 https://www.software.ac.uk/blog/2020-02-20-fellows-inaugural-meeting-2020
 https://www.software.ac.uk/blog/2020-02-20-fellows-inaugural-meeting-2020?mc_cid=b1dcd8d858&mc_eid=e9f6e78c1a
+https://www.software.ac.uk/blog/2020-02-27-continuous-integration-fail-fast-and-fail-first
 https://www.software.ac.uk/blog/2020-03-11-research-software-alliance-resa-and-community-landscape
 https://www.software.ac.uk/blog/2020-03-12-teaching-new-geospatial-python-lesson
 https://www.software.ac.uk/blog/2020-03-19-open-and-reproducible-research-community-driven-research-software-metrics
@@ -3240,7 +3242,9 @@ https://www.software.ac.uk/developing-scientific-applications-using-model-view-c
 https://www.software.ac.uk/editorial-style-guide
 https://www.software.ac.uk/generating-google-maps-out-google-spreadsheets
 https://www.software.ac.uk/getting-know-jenkins
+https://www.software.ac.uk/home/cw11/giving-good-lightning-talk
 https://www.software.ac.uk/how-cite-and-describe-software
+https://www.software.ac.uk/how-cite-software
 https://www.software.ac.uk/how-continuous-integration-can-help-you-regularly-test-and-release-your-software
 https://www.software.ac.uk/how-fund-research-software-development
 https://www.software.ac.uk/how-run-software-carpentry-boot-camp
@@ -3280,5 +3284,7 @@ https://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-s
 https://www.software.ac.uk/resources/guides/writing-readable-source-code
 https://www.software.ac.uk/resources/guides/your-project-ending-dont-panic
 https://www.software.ac.uk/so-exactly-what-software-did-you-use
+https://www.software.ac.uk/software-management-plans
 https://www.software.ac.uk/speed-blogging-and-tips-writing-speed-blog-post
+https://www.software.ac.uk/using-continuous-integration-build-and-test-your-software
 https://www.software.ac.uk/writing-software-sustainability-institute

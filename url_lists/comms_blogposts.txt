@@ -3162,6 +3162,7 @@ https://www.software.ac.uk/blog/2020-02-19-it-takes-more-publications-recognise-
 https://www.software.ac.uk/blog/2020-02-20-announcing-mini-workshop-and-demo-sessions-collaborations-workshop-2020?mc_cid=b1dcd8d858&mc_eid=a1d1ab29e8
 https://www.software.ac.uk/blog/2020-02-20-announcing-mini-workshop-and-demo-sessions-collaborations-workshop-2020?mc_cid=b1dcd8d858&mc_eid=e10eaeac63
 https://www.software.ac.uk/blog/2020-02-20-fellows-inaugural-meeting-2020?mc_cid=b1dcd8d858&mc_eid=e9f6e78c1a
+https://www.software.ac.uk/blog/2020-02-27-continuous-integration-fail-fast-and-fail-first
 https://www.software.ac.uk/blog/2020-03-11-research-software-alliance-resa-and-community-landscape
 https://www.software.ac.uk/blog/2020-03-12-teaching-new-geospatial-python-lesson
 https://www.software.ac.uk/blog/2020-03-19-open-and-reproducible-research-community-driven-research-software-metrics
