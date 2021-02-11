@@ -9,7 +9,7 @@ LOGFILE_DIR = 'logs'
 # Start and end dates you want for stats
 # (Defaults indicate dates for which GA data is currently available)
 STARTDATE = '2010-04-01'
-ENDDATE = '2020-12-31'
+ENDDATE = '2021-01-31'
 
 # The overall Google Analytics metrics you want
 # You can find the full list at
