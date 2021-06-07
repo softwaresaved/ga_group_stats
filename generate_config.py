@@ -1,4 +1,4 @@
-]# Config file for generate_config.py
+# Config file for generate_config.py
 
 # Where to store log files
 LOGFILE_DIR = 'logs'
