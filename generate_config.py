@@ -1,4 +1,4 @@
-# Config file for generate_config.py
+]# Config file for generate_config.py
 
 # Where to store log files
 LOGFILE_DIR = 'logs'
@@ -6,7 +6,7 @@ LOGFILE_DIR = 'logs'
 # Start and end dates you want for stats
 # (Defaults indicate dates for which GA data is currently available)
 STARTDATE = '2010-04-01'
-ENDDATE = '2021-04-30'
+ENDDATE = '2021-05-31'
 
 # The overall Google Analytics metrics you want
 # You can find the full list at
