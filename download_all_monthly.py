@@ -82,6 +82,7 @@ def get_report_page(analytics, start_date, end_date, pageSize, pageToken):
     body = {
         'reportRequests': [{
             'viewId': VIEW_ID,
+            'samplingLevel': 'LARGE',
             'dimensions': [{"name": "ga:pagepath"}],
             'dateRanges': [{
                 'startDate': start_date.strftime('%Y-%m-%d'),
