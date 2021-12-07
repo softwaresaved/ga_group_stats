@@ -109,3 +109,8 @@ https://www.software.ac.uk/blog/2021-08-03-six-tips-building-communities-practic
 https://www.software.ac.uk/blog/2021-08-04-best-practices-software-registries-and-repositories
 https://www.software.ac.uk/blog/2021-08-13-behind-scenes-ssi-event-organisation-guide
 https://www.software.ac.uk/blog/2021-08-27-top-tips-online-presentations
+https://www.software.ac.uk/blog/2021-09-21-how-make-great-screencast-application-our-fellowship-programme
+https://www.software.ac.uk/blog/2021-10-22-introduction-unit-testing
+https://www.software.ac.uk/blog/2021-11-01-guide-5-popular-myths-learning-code
+https://www.software.ac.uk/blog/2021-11-01-using-python-double-check-your-work
+https://www.software.ac.uk/blog/2021-11-04-top-tips-start-coding-academia
